@@ -1,0 +1,30 @@
+from . import Expense
+import collections
+import matplotlib.pyplot as plt
+
+
+expenses = Expense.Expenses()
+expenses.read_expenses('data/spending_data.csv')
+
+spending_categories = []
+
+# Spending Categories information
+for expense in expenses.list:
+    spending_categories.append(expense.category)
+
+
+# Create the collections for each
+spendingCounter = collections.Counter(spending_categories)
+
+print(spendingCounter)
+
+top5 = spendingCounter.most_common(5)
+
+categories, count = zip(*top5)
+
+fig, ax = plt.subplots()
+
+ax.bar(categories, count)
+ax.set_title('# of Purchases by Category')
+
+plt.show()
