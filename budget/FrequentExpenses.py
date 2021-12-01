@@ -14,11 +14,11 @@ for expense in expenses.list:
 
 
 # Create the collections for each
-spendingCounter = collections.Counter(spending_categories)
+spending_counter = collections.Counter(spending_categories)
 
-print(spendingCounter)
+print(spending_counter)
 
-top5 = spendingCounter.most_common(5)
+top5 = spending_counter.most_common(5)
 
 categories, count = zip(*top5)
 
